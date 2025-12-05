@@ -96,6 +96,27 @@ a.external {
     transition:  0.5s ease;
 }
 
+.logout-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f87171; /* rouge */
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+    z-index: 1000; /* pour qu'il soit toujours au-dessus */
+}
+
+.logout-btn:hover {
+    background: #ef4444; /* rouge plus foncé au survol */
+}
+
+
 /* Overlay pour rendre le texte lisible sur l'image */
 .main-content::before {
     content:"";
@@ -112,6 +133,9 @@ a.external {
 
 <div class="full-page-flex">
     <!-- Menu -->
+     <button id="logout-btn" class="logout-btn" style="margin-top:20px; background:#f87171; color:white; border:none; cursor:pointer;">
+    Déconnexion
+</button>
     <aside class="narrow-sidebar">
         <div class="menu-title">Matières</div>
         <nav id="subject-menu">
@@ -140,6 +164,12 @@ a.external {
 </div>
 
 <script>
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+    // Redirection vers la page d'accueil
+    window.location.href = 'accueil.html'; // Remplace 'index.html' par le chemin réel de ta page d'accueil
+});
+
 // Données pour les matières (exemples détaillés et mise en contexte NIRD)
 const liens = {
     maths:[
